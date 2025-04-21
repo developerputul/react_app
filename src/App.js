@@ -1,57 +1,45 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navbar from 'react-bootstrap/Navbar';
+import { FormControl } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+
  class App extends React.Component {
 
-  state = {
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-   
-  }
-
-  validate(){
-    if(!this.state.email>0 && !this.state.password>0){
-      this.setState({emailError: "Email and Password required"})
-
-    }else if(!this.state.email>0){
-      this.setState({emailError: "Email Required"})
-    }else if(!this.state.password>0){
-      this.setState({passwordError: "Password Required"})
-    }else{
-      return true; 
-    }
-  }
-  formSubmit = (e) => {
-    e.preventDefault();
-    if(this.validate()){
-      alert("Form Submit Done");
-    }
-    // console.log(this.state.email, this.state.password, this.state.emailError, this.state.passwordError);
-   
-  }
- 
 
   render() {
+
     return (
       <div className='App'>
-        <h1>Login Panel</h1>
-        <h1>{this.state.password}</h1>
-
+       <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar.Brand href="#">Easy Learning</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+            <Nav.Link href="#action1">About</Nav.Link>
+            <Nav.Link href="#action1">Contact</Nav.Link>
+            <Nav.Link href="#action1">Blog</Nav.Link>
+            <Nav.Link href="#action1">Profile</Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+    </Navbar>
         <div>
-          <form onSubmit={this.formSubmit}>
-            <div class="form-group" style={{marginLeft:200}}>
-                <label>Email:</label> <br></br>
 
-                <input type='email' name='email' onChange={(event)=>{this.setState({email:event.target.value})}}></input><br></br>
-                <strong style={{color: "red"}}>{this.state.emailError}</strong><br></br>
-
-                <label>Password:</label> <br></br>
-                <input type='password' name='password'onChange={(event)=>{this.setState({password:event.target.value})}}></input><br></br>
-                <strong style={{color: "red"}}>{this.state.passwordError}</strong><br></br>
-
-                <button type='submit'>Submit</button>
-            </div>
-          </form>
+        <Breadcrumb>
+      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+      <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+        Library
+      </Breadcrumb.Item>
+      <Breadcrumb.Item active>Data</Breadcrumb.Item>
+    </Breadcrumb>
         </div>
       </div>
     )

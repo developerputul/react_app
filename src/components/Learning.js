@@ -41,7 +41,7 @@ clickHandler = () => {
         }
         return (
             <div>
-                <button style={style} onClick={this.clickHandler}>Click Me</button>
+            <button style={style} onClick={this.clickHandler}>Click Me</button>
             <h1 className="Card">Fruit Name is {this.state.fruits[0].name}</h1>
             <h1 className="Card">Fruit Name is {this.state.fruits[1].name}</h1>
             <h1 className="Card">Fruit Name is {this.state.fruits[2].name}</h1>
